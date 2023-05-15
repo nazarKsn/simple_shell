@@ -40,6 +40,12 @@ hsh main.c shell.c test_ls_2
 $
 
 
+Resources
+Read or watch:
 
+Unix shell
+Thompson shell
+Ken Thompson
+Everything needed to know to start coding the shell concept page
 
 
