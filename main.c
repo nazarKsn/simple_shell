@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * main - initializes the program's variables
+ * main - initialize the variables of the program
  * @argc: number of values received from the command line
  * @argv: values received from the command line
  * @env: number of values received from the command line
@@ -11,7 +11,7 @@ int main(int argc, char *argv[], char *env[])
 	data_of_program data_struct = {NULL}, *data = &data_struct;
 	char *prompt = "";
 
-	initialize_data(data, argc, argv, env);
+	inicialize_data(data, argc, argv, env);
 
 	signal(SIGINT, handle_ctrl_c);
 
@@ -26,7 +26,7 @@ int main(int argc, char *argv[], char *env[])
 }
 
 /**
- * handle_ctrl_c - prints the prompt in a new line
+ * handle_ctrl_c - print the prompt in a new line
  * when the signal SIGINT (ctrl + c) is send to the program
  * @UNUSED: option of the prototype
  */
@@ -37,13 +37,13 @@ void handle_ctrl_c(int opr UNUSED)
 }
 
 /**
- * initialize_data - initialize the struct with program data
+ * inicialize_data - inicialize the struct with the info of the program
  * @data: pointer to the structure of data
  * @argv: array of arguments pased to the program execution
  * @env: environ pased to the program execution
  * @argc: number of values received from the command line
  */
-void initialize_data(data_of_program *data, int argc, char *argv[], char **env)
+void inicialize_data(data_of_program *data, int argc, char *argv[], char **env)
 {
 	int i = 0;
 
@@ -59,10 +59,10 @@ void initialize_data(data_of_program *data, int argc, char *argv[], char **env)
 		data->file_descriptor = open(argv[1], O_RDONLY);
 		if (data->file_descriptor == -1)
 		{
-			_printf(data->program_name);
-			_printf(": 0: Can't open ");
-			_printf(argv[1]);
-			_printf("\n");
+			_printe(data->program_name);
+			_printe(": 0: Can't open ");
+			_printe(argv[1]);
+			_printe("\n");
 			exit(127);
 		}
 	}
@@ -118,4 +118,3 @@ void sisifo(char *prompt, data_of_program *data)
 		}
 	}
 }
-
